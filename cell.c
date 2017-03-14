@@ -35,7 +35,19 @@ Cell Cell_Create(int x, int y, CellState s) {
  */
 bool Cell_AreNeighbors(Cell C1, Cell C2) {
     // TODO: complete this function
-
+    for(int i = -1; i <= 1; i++){
+        for(int j = -1; j <= 1; j++){
+            if ( i == 0 && j == 0){
+                continue;
+            }
+            if((C1.x - i) == C2.x){
+                if((C1.y - j) == C2.y){
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
 
 /*

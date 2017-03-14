@@ -16,12 +16,21 @@
 CellGrid* CellGrid_Create(int numRows, int numCols) {
     // TODO: complete this function
     CellGrid * result = malloc(sizeof(CellGrid));
+    CellGrid->numCols = numCols;
+    CellGrid->numCols = numRows;
     result->cell = malloc(sizeof(Cell*) * numRows);
     for(int i = 0; i < numRows; i++){
         result->grid[i] = malloc(sizeof(Cell) * numCols);
         }
+    for (int i = 0; i < numRows; i++){
+        for( int j = 0; j < numCols; j++){
+            result->grid[i][j].x = i;
+            result->grid[i][j].y = j;
+            result->grid[i][j].s = OFF;
+        }
     }
-    //add cell struct allocation loops
+}
+
     return result;
 }
 
@@ -32,7 +41,11 @@ CellGrid* CellGrid_Create(int numRows, int numCols) {
  *      De-allocates G, including grid, row by row
  */
 void CellGrid_Delete(CellGrid* G) {
-    // TODO: complete this function
+    // TODO: complete this
+        for (int j = 0; j < G->numCols; i++) {
+            free(G[i]);
+        }
+    free(G);
 }
 //delete the columns
 //rows
@@ -49,6 +62,7 @@ void CellGrid_Delete(CellGrid* G) {
  */
 CellState CellGrid_GetState(const CellGrid* G, int row, int col) {
     // TODO: complete this function
+    return G->grid[row][col].s;
 }
 
 /*
@@ -60,6 +74,7 @@ CellState CellGrid_GetState(const CellGrid* G, int row, int col) {
  */
 void CellGrid_SetCell(CellGrid* G, Cell C) {
     // TODO: complete this function
+    G->grid[C.x][C.y] = C.s;
 }
 
 /*
@@ -89,6 +104,12 @@ void CellGrid_Update(CellGrid* G, int row, int col) {
  */
 bool CellGrid_Inbounds(const CellGrid* G, int row, int col) {
     // TODO: complete this function
+    if(G->numRows < row){
+        if(G->numCols < col){
+            return true;
+        }
+    }
+    return false;
 }
 
 /*

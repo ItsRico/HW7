@@ -39,6 +39,7 @@ CellGrid* FirstGeneration(int numRows, int numCols, List* seedCells) {
 
 CellGrid* NextGeneration(CellGrid* generation) {
     // TODO: complete this function
+
 }
 
 /*
@@ -72,6 +73,8 @@ bool CellIsOn(CellGrid* generation, int row, int col) {
 List* GetNeighboringCells(Cell cell, CellGrid* generation) {
     // TODO: complete this function
     // Hint: Use List_Create to instantiate the list and List_PushFront to add elements to the list
+
+   List_Create
 }
 
 /*

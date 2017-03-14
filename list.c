@@ -90,6 +90,11 @@ int List_PushFront(List* list, Cell data) {
  */
 void List_Print(List* list) {
     // TODO: complete this function
+    List * tempPtr = list->head;
+    while(tempPtr != NULL;){
+        printf("%d", tempPtr->data);
+        tempPtr = list->next;
+    }
 }
 
 /*
